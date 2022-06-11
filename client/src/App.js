@@ -22,10 +22,8 @@ function App() {
   });
 
   return (
-    <div className="container min-h-screen px-6 py-8 mx-auto transition duration-200 bg-gray-900 border-2 rounded-lg hover:shadow-yellow-200 xl:w-6/12">
-      <div className="font-bold text-white sm:text-3xl md:text-4xl ">
-        Logo Here
-      </div>
+    <div className="container min-h-screen px-6 py-8 mx-auto transition duration-200 rounded-lg bg-gray-300/20 backdrop-blur-sm hover:border-1-red-500 hover:shadow-yellow-200 xl:w-6/12">
+      <div className="font-bold sm:text-3xl md:text-4xl">Chatty</div>
       {!showChat ? (
         <>
           <Header data="Join A Chat Room!"></Header>
@@ -59,6 +57,7 @@ function App() {
       ) : (
         <ChatRoom socket={socket} username={username} room={room} />
       )}
+      {/* <ChatRoom socket={socket} username={username} room={room} /> */}
     </div>
   );
 }
