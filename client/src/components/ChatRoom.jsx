@@ -65,7 +65,7 @@ function ChatRoom({ socket, username, room }) {
                   <p id="author" className="text-normal">
                     {messageContent.author}
                   </p>
-                  <p className="text-gray-900 rounded bg-gray-50 ">
+                  <p className="pr-3 text-gray-900 rounded  bg-gray-50">
                     {messageContent.time}
                   </p>
                 </div>
