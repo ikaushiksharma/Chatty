@@ -9,7 +9,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
-  const [theme, setTheme] = useState("yellow");
+  const [theme, setTheme] = useState("red");
   socket.on("connect", () => {
     console.log(socket.connected); // true
   });

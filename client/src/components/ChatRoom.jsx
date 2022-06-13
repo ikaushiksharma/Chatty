@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import ScrollToBottom from "react-scroll-to-bottom";
 // import "./a.css";
+import InputEmoji from "react-input-emoji";
+
 function ChatRoom({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -65,7 +67,7 @@ function ChatRoom({ socket, username, room }) {
                   <p id="author" className="text-normal">
                     {messageContent.author}
                   </p>
-                  <p className="pr-3 text-gray-900 rounded  bg-gray-50">
+                  <p className="pr-3 text-gray-900 rounded bg-gray-50">
                     {messageContent.time}
                   </p>
                 </div>
@@ -78,20 +80,23 @@ function ChatRoom({ socket, username, room }) {
         })}
       </div>
       <div className="absolute bottom-0 flex w-full">
-        <input
+        <InputEmoji
           type="text"
-          className="w-11/12 px-4 py-2 rounded outline-none focus:shadow-lg"
+          className="w-11/12 px-4 py-2 transition-colors rounded outline-none hover:bg-gray-200 focus:shadow-lg"
           value={currentMessage}
           placeholder="Hey..."
-          onChange={(event) => {
-            setCurrentMessage(event.target.value);
-          }}
-          onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
-          }}
+          // onChange={(event) => {
+          //   setCurrentMessage(event.target.value);
+          // }}
+          onChange={setCurrentMessage}
+          // onKeyPress={"Enter" && sendMessage()}
+          onEnter={sendMessage}
         />
         <button className="w-1/12" onClick={sendMessage}>
-          &#9658;
+          <img
+            src="https://img.icons8.com/fluency/48/undefined/filled-sent.png"
+            className="w-9/12 p-1 ml-2 transition-colors border-2 border-red-100 rounded-full hover:bg-gray-900"
+          />
         </button>
       </div>
     </div>
