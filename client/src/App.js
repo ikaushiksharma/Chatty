@@ -57,14 +57,22 @@ function App() {
   return (
     <div className="container min-h-screen px-6 py-8 mx-auto transition duration-200 rounded-lg bg-gray-100/50 backdrop-blur-sm xl:w-6/12">
       {/* <AlpineWidget /> */}
-      <div className="font-bold text-center sm:text-3xl md:text-4xl">
+      <div
+        style={{
+          clipPath:
+            " polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)",
+        }}
+        className="flex items-center justify-center w-7/12 p-12 mx-auto font-bold text-center bg-white rounded-xl h-9/12 sm:text-5xl md:text-5xl"
+      >
         Chatty
+        <img src="chatty.gif" className="h-20 px-8" />
       </div>
 
       {!showChat ? (
         <>
-          <div className="p-12 m-12 font-serif text-5xl font-black text-gray-800 ">
+          <div className="flex justify-center px-12 py-5 mx-12 mt-12 font-serif text-5xl font-black text-center text-gray-800 ">
             <q>Its Easy Talking to Your Friends with Chatty</q>
+            <img src="chat.png" className=" h-96" />
           </div>
           <Header data="Join A Chat Room!"></Header>
           <div className="flex justify-around">
