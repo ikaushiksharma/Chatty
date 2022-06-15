@@ -1,39 +1,14 @@
-// import "alpinejs";
 import { io } from "socket.io-client";
 import React, { useState } from "react";
 import Header from "./components/Header";
 import ChatRoom from "./components/ChatRoom";
 const socket = io.connect("http://localhost:3001");
-
-// window.theme = () => {
-//   return {
-//     colorThemes: [
-//       "red", //#f7e8a4
-//       "dark-blue", // #172A3A
-//       "green", // #d9c5b2
-//       "black", // #04A777
-//     ],
-//     themeClass: {},
-//     choiceClass(className) {
-//       const classes = { "color-choice": true };
-//       classes[className] = true;
-//       return classes;
-//     },
-//     changeTheme(className) {
-//       this.themeClass = this.colorThemes.reduce((allClasses, cn) => {
-//         allClasses[cn] = className === cn;
-//         return allClasses;
-//       }, {});
-//     },
-//   };
-// };
-
 function App() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
   socket.on("connect", () => {
-    console.log(socket.connected); // true
+    console.log(socket.connected);
   });
   const joinRoom = () => {
     if (room !== "" && username !== "") {
@@ -42,21 +17,10 @@ function App() {
     }
   };
   socket.on("disconnect", () => {
-    console.log(socket.connected); // false
+    console.log(socket.connected);
   });
-  //   const AlpineTemp = `<div>
-  //   <span class="color-theme-container">
-  //       <template x-for="(ct, index) in colorThemes" :key="index">
-  //           <span x-bind:class="choiceClass(ct)" @click="changeTheme(ct)"></span>
-  //       </template>
-  //   </span>
-  // </div>`;
-  // const AlpineWidget = () => (
-  //   <div dangerouslySetInnerHTML={{ __html: AlpineTemp }} />
-  // );
   return (
     <div className="container min-h-screen px-6 py-8 mx-auto transition duration-200 rounded-lg bg-gray-100/50 backdrop-blur-sm xl:w-6/12">
-      {/* <AlpineWidget /> */}
       <div
         style={{
           clipPath:
@@ -105,7 +69,6 @@ function App() {
       ) : (
         <ChatRoom socket={socket} username={username} room={room} />
       )}
-      {/* <ChatRoom socket={socket} username={username} room={room} /> */}
     </div>
   );
 }

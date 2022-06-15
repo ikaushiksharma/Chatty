@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import ScrollToBottom from "react-scroll-to-bottom";
-// import "./a.css";
 import InputEmoji from "react-input-emoji";
 
 function ChatRoom({ socket, username, room }) {
@@ -84,11 +82,7 @@ function ChatRoom({ socket, username, room }) {
           className="w-11/12 px-4 py-2 transition-colors rounded outline-none hover:bg-gray-200 focus:shadow-lg"
           value={currentMessage}
           placeholder="Hey..."
-          // onChange={(event) => {
-          //   setCurrentMessage(event.target.value);
-          // }}
           onChange={setCurrentMessage}
-          // onKeyPress={"Enter" && sendMessage()}
           onEnter={sendMessage}
         />
         <button className="w-1/12" onClick={sendMessage}>
