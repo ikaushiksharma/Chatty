@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import React, { useState } from "react";
 import Header from "./components/Header";
 import ChatRoom from "./components/ChatRoom";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://vercel.com/ikaushiksharma/chatty-server");
 function App() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
