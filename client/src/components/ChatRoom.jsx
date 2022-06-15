@@ -27,7 +27,6 @@ function ChatRoom({ socket, username, room }) {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
-      console.log(messageList);
     });
   }, [socket]);
 
@@ -63,11 +62,11 @@ function ChatRoom({ socket, username, room }) {
           } else {
             return (
               <div className="p-0.5 m-1 relative text-black border-black rounded-lg px-7 w-fit">
-                <div className="p-0.5 flex justify-between text-red-600">
+                <div className="p-0.5 grid grid-cols-2 col-span-2 text-red-600">
                   <p id="author" className="text-normal">
                     {messageContent.author}
                   </p>
-                  <p className="pr-3 text-gray-900 rounded bg-gray-50">
+                  <p className="pl-3 text-gray-900 rounded bg-gray-50">
                     {messageContent.time}
                   </p>
                 </div>
